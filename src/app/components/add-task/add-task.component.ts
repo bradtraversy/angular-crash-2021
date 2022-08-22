@@ -10,8 +10,8 @@ import { Task } from '../../Task';
 })
 export class AddTaskComponent implements OnInit {
   @Output() onAddTask: EventEmitter<Task> = new EventEmitter();
-  text: string;
-  day: string;
+  text!: string;
+  day!: string;
   reminder: boolean = false;
   showAddTask: boolean;
   subscription: Subscription;
@@ -23,11 +23,11 @@ export class AddTaskComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-  
-   ngOnDestroy() {
-        // Unsubscribe to ensure no memory leaks
-        this.subscription.unsubscribe();
-    }
+
+  ngOnDestroy() {
+    // Unsubscribe to ensure no memory leaks
+    this.subscription.unsubscribe();
+  }
 
   onSubmit() {
     if (!this.text) {
